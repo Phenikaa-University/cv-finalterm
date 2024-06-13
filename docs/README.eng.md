@@ -19,7 +19,7 @@
 <div align="center">
   
   <a href="https://github.com/Phenikaa-University/cv-finalterm">![link to main GitHub showing Stars number](https://img.shields.io/github/stars/Phenikaa-University/cv-finalterm?style=social)</a>
-  <a href="https://github.com/Phenikaa-University/cv-finalterm">![link to main GitHub showing Forks number](https://img.shields.io/github/forks/cngvng/Phenikaa-University/cv-finalterm?style=social)</a>
+  <a href="https://github.com/Phenikaa-University/cv-finalterm">![link to main GitHub showing Forks number](https://img.shields.io/github/forks/Phenikaa-University/cv-finalterm?style=social)</a>
   <a href="https://twitter.com/cngvng413">![X (formerly Twitter) URL](https://img.shields.io/twitter/follow/cngvng413)</a>
  
 </div>

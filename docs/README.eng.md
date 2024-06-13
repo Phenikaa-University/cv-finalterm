@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/cngvng/askme-vfossa/blob/main/README.md"><img src="https://img.shields.io/badge/lang-Vietnamese-red.svg" alt="VietNam"></a>
-  <a href="https://github.com/cngvng/askme-vfossa/blob/main/docs/Languages/README.eng.md"><img src="https://img.shields.io/badge/lang-English-red.svg" alt="English"></a>
+  <a href="https://github.com/Phenikaa-University/cv-finalterm/blob/main/README.md"><img src="https://img.shields.io/badge/lang-vietnamese-red.svg" alt="VietNam"></a>
+  <a href="https://github.com/Phenikaa-University/cv-finalterm/blob/main/docs/Languages/README.eng.md"><img src="https://img.shields.io/badge/lang-English-red.svg" alt="English"></a>
 </p>
 
 

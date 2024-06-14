@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload an Image for Prediction</h1>
+    <input type="file" id="fileInput" accept="image/*">
+    <button onclick="uploadImage()">Upload</button>
+
+    <!-- Thêm phần tử select cho việc lựa chọn model -->
+    <select id="modelSelect">
+        <option value="v8n">model-1</option>
+        <option value="v8x">model-2</option>
+        
+    </select>
+
+    <br>
+    <img id="uploadedImage" style="display: none; max-width: 400px;">
+    <br>
+    <h2>Prediction:</h2>
+    <pre id="predictionResult"></pre>
+    <img id="predictionImage" style="display: none; max-width: 400px;">
+
+
+    <script>
+        function uploadImage() {
+            const fileInput = document.getElementById('fileInput');
+            const modelSelect = document.getElementById('modelSelect');  // Lấy giá trị model đã chọn
+            const predictionResult = document.getElementById('predictionResult');
+            const predictionImage = document.getElementById('predictionImage');
+
+            const file = fileInput.files[0];
+            const selectedModel = modelSelect.value;  // Lấy giá trị model đã chọn
+
+            if (file) {
+                const formData = new FormData();
+                formData.append('file', file);
+
+                // Gửi cả model đã chọn lên server
+                formData.append('model', selectedModel);
+
+                fetch('/upload/', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.predictions) {
+                        // Hiển thị thông tin dự đoán
+                        predictionResult.textContent = JSON.stringify(data.predictions, null, 4);
+
+                        // Hiển thị hình ảnh dự đoán
+                        predictionImage.src = data.image_path;
+                        predictionImage.style.display = 'block';
+                    } else if (data.error) {
+                        alert(data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

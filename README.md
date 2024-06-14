@@ -30,7 +30,7 @@ Danh sách thành viên của nhóm:
 
 |  Họ và tên | MSSV | Lớp |
 | -------- | -------- | -------- |
-| Vương Tuấn Cường    | 21011490    | K15-KHMT    |
+| [Vương Tuấn Cường](https://cngvng.github.io/)  | 21011490    | K15-KHMT    |
 | Nguyễn Lê Phương Linh    | 22014068    | CNTT    |
 
 </div>

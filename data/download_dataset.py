@@ -12,7 +12,7 @@ from multiprocessing import Process
 
 def download_img(url):
     fname = url.split('/')[-1]
-    save_path = "custom_dataset/images"
+    save_path = "test/dataset/raw"
     full_path = os.path.join(save_path, fname)
     existed = os.path.exists(full_path)
     if(existed == False):
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     # read json file to a list
     refined = []
     data = []
-    with open('dataset/pizzacam.json') as f:
+    with open('dataset/pizzacam_test.json') as f:
         for line in f:
             data.append(json.loads(line))
     # Refine data, some image_url are Null

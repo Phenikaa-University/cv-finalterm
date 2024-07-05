@@ -34,6 +34,8 @@ class CustomDataset(Dataset):
 
 
 def convert_label(label_str, label_str_set):
+    # Convert label_str to string if it's not already one
+    label_str = str(label_str)
     labels = []
     for char in label_str:
         if char in label_str_set:

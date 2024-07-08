@@ -92,6 +92,13 @@ def refine_img(path: dict):
             
 
 def split_data(path, split_ratio=0.8):
+    """
+    Input parameters:
+        path: dict, dictionary containing paths to input and label folders
+        split_ratio: float, ratio to split the data into training and testing
+    Output:
+        Return the split data
+    """
     train_images_folder = os.path.join(path.get("input_folder"), "train")
     test_images_folder = os.path.join(path.get("input_folder"), "test")
     train_labels_folder = os.path.join(path.get("label_folder"), "train")

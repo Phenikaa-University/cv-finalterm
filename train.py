@@ -94,7 +94,7 @@ def train_model(config):
         # Save the best model
         if average_val_loss < best_loss:
             best_loss = average_val_loss
-            torch.save(model.state_dict(), 'best_model.pt')
+            torch.save(model.state_dict(), 'checkpoints/best_model.pt')
         
         # Save checkpoint every 5 epochs
         if (epoch + 1) % 5 == 0:

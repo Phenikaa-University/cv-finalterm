@@ -13,7 +13,7 @@ path = {
     "outline_label_folder": "./dataset/outline_labels",
 }
 model = YOLO('yolov8n.pt')
-label_file = "dataset/data_refine_test.xlsx"
+label_file = "dataset/data_refine.xlsx"
 
 def pre_label(label_file, path,  model):
     try:
@@ -119,6 +119,10 @@ def split_data(path, split_ratio=0.8):
     for img_file, lbl_file in zip(train_img_files, train_label_files):
         shutil.move(os.path.join(path.get("input_folder"), img_file), os.path.join(train_images_folder, img_file))
         shutil.move(os.path.join(path.get("label_folder"), lbl_file), os.path.join(train_labels_folder, lbl_file))
+    
+    for img_file, lbl_file in zip(test_img_files, test_label_files):
+        shutil.move(os.path.join(path.get("input_folder"), img_file), os.path.join(test_images_folder, img_file))
+        shutil.move(os.path.join(path.get("label_folder"), lbl_file), os.path.join(test_labels_folder, lbl_file))
         
 def export_label_files(path, label_file):
     test_img_files = [f for f in os.listdir(os.path.join(path.get("input_folder"), "test")) if f.endswith('.jpg')]
@@ -134,9 +138,13 @@ def export_label_files(path, label_file):
     train_filtered_df.to_excel(os.path.join(path.get("label_folder"), "train_labels.xlsx"), index=False)
 
 def main():
+    print("Preprocessing data... - Pre label")
     pre_label(label_file, path, model)
+    print("Preprocessing data... - Refine image")
     refine_img(path)
+    print("Preprocessing data... - Split data")
     split_data(path)
+    print("Preprocessing data... - Export label files")
     export_label_files(path, label_file)
     
 if __name__ == "__main__":

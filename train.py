@@ -10,10 +10,10 @@ import time
 
 def get_config():
     parser = argparse.ArgumentParser(description="Train EfficientNet Model")
-    parser.add_argument('--train_dir', type=str, default="test/dataset/images/train", help='Path to training images directory')
-    parser.add_argument('--test_dir', type=str, default="test/dataset/images/test",help='Path to testing images directory')
-    parser.add_argument('--train_label', type=str, default="test/dataset/labels/train_labels.xlsx",help='Path to training labels file')
-    parser.add_argument('--test_label', type=str, default="test/dataset/labels/test_labels.xlsx",help='Path to testing labels file')
+    parser.add_argument('--train_dir', type=str, default="./dataset/images/train", help='Path to training images directory')
+    parser.add_argument('--test_dir', type=str, default="./dataset/images/test",help='Path to testing images directory')
+    parser.add_argument('--train_label', type=str, default="./dataset/labels/train_labels.xlsx",help='Path to training labels file')
+    parser.add_argument('--test_label', type=str, default="./dataset/labels/test_labels.xlsx",help='Path to testing labels file')
     parser.add_argument('--img_size', type=tuple, default=(256, 256), help='Image size (width, height)')
     parser.add_argument('--batch_size', type=int, default=64, help='Batch size')
     parser.add_argument('--num_epochs', type=int, default=60, help='Number of epochs')

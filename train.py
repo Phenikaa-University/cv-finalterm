@@ -39,6 +39,8 @@ def train_model(config):
         config.batch_size, config.img_size
     )
     
+    print(len(train_loader), len(test_loader))
+    
     # Create model
     model = create_model(config.model_name, config.num_classes)
     model.to(device)
@@ -47,6 +49,7 @@ def train_model(config):
     optimizer = optim.Adam(model.parameters(), lr=config.lr)
     
     best_loss = float('inf')
+    best_accuracy = 0.0  # Initialize best accuracy
     train_losses = []
     val_losses = []
     
@@ -78,6 +81,8 @@ def train_model(config):
         model.eval()
         total_val_loss = 0.0
         with torch.no_grad():
+            correct = 0
+            total = 0
             for inputs, labels, _ in test_loader:
                 inputs = inputs.to(device)
                 labels = labels.to(device)
@@ -85,7 +90,29 @@ def train_model(config):
                 outputs = torch.sigmoid(outputs)
                 loss = criterion(outputs, labels)
                 total_val_loss += loss.item()
+                
+                # Calculate accuracy
+                predicted = (outputs > 0.5).float()
+                correct += (predicted == labels).sum().item()
+                total += labels.size(0)
+            
+        if len(test_loader) > 0:
+            average_val_loss = total_val_loss / len(test_loader)
+        else:
+            average_val_loss = float('inf')  # or some other appropriate value or handling
+        val_losses.append(average_val_loss)
+        print(f'Validation Loss: {average_val_loss:.4f}')
+        wandb.log({"Validation Loss": average_val_loss})
         
+        accuracy = correct / total
+        print(f'Validation Accuracy: {accuracy:.4f}')
+        wandb.log({"Validation Accuracy": accuracy})
+        
+        # Save the best model based on accuracy
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            torch.save(model.state_dict(), 'checkpoints/best_model_based_acc.pt')
+    
         average_val_loss = total_val_loss / len(test_loader)
         val_losses.append(average_val_loss)
         print(f'Validation Loss: {average_val_loss:.4f}')
@@ -94,7 +121,7 @@ def train_model(config):
         # Save the best model
         if average_val_loss < best_loss:
             best_loss = average_val_loss
-            torch.save(model.state_dict(), 'checkpoints/best_model.pt')
+            torch.save(model.state_dict(), 'checkpoints/best_model_based_loss.pt')
         
         # Save checkpoint every 5 epochs
         if (epoch + 1) % 5 == 0:

@@ -61,7 +61,7 @@ if __name__ == '__main__':
     # read json file to a list
     refined = []
     data = []
-    with open('./dataset/pizzacam_test.json') as f:
+    with open('./dataset/pizzacam.json') as f:
         for line in f:
             data.append(json.loads(line))
     # Refine data, some image_url are Null

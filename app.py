@@ -20,8 +20,8 @@ from torchvision import transforms
 app = FastAPI()
 
 # Đường dẫn đến mô hình YOLO đã train
-yolo_model_v8x_path = "runs/detect/train13/weights/best.pt"
-model_path = 'checkpoints/best_models.pt'
+yolo_model_v8x_path = "runs/detect/train20/weights/best.pt"
+model_path = 'checkpoints/best_model.pt'
 # excel_file = "convert_data/data_refine.xlsx"
 
 
@@ -97,7 +97,7 @@ def predict_with_model(image_path, yolo_model_path, model_path):
         nn.Sigmoid()  # Sử dụng sigmoid cho multi-label classification
     )
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.load_state_dict(torch.load(model_path))
     transform_test = transforms.Compose([
         transforms.Resize(img_size),
         transforms.ToTensor(),

@@ -50,18 +50,21 @@ Open `terminal`, type:
 
 Otherwise, refer to this Guide:
 
-1. Download and open this repository with `git clone https://github.com/cngvng/ask-me.git`
-2. Run  `python app.py`
+1. Download and open this repository with `git clone https://github.com/Phenikaa-University/cv-finalterm.git`
+2. Run  `python app.py` if you want to running the web application
+
+For training:
+1. Run `python train.py`
+For testing:
+1. Run `python test.py`
 
 
 ## Many Thanks To Our Contributors⚡
 
-<a href="https://github.com/arc53/DocsGPT/graphs/contributors" alt="View Contributors">
-  <img src="https://contrib.rocks/image?repo=cngvng/ask-me" alt="Contributors" />
+<a href="https://github.com/Phenikaa-University/cv-finalterm/graphs/contributors" alt="View Contributors">
+  <img src="https://contrib.rocks/image?repo=Phenikaa-University/cv-finalterm" alt="Contributors" />
 </a>
 
 ## License
 
 The source code license is [MIT](https://opensource.org/license/mit/), as described in the [LICENSE](LICENSE) file.
-
-Built with [:bird: :link: LangChain](https://github.com/hwchase17/langchain)

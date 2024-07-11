@@ -138,12 +138,12 @@ def export_label_files(path, label_file):
     train_filtered_df.to_excel(os.path.join(path.get("label_folder"), "train_labels.xlsx"), index=False)
 
 def main():
-    # print("Preprocessing data... - Pre label")
-    # pre_label(label_file, path, model)
-    # print("Preprocessing data... - Refine image")
-    # refine_img(path)
-    # print("Preprocessing data... - Split data")
-    # split_data(path)
+    print("Preprocessing data... - Pre label")
+    pre_label(label_file, path, model)
+    print("Preprocessing data... - Refine image")
+    refine_img(path)
+    print("Preprocessing data... - Split data")
+    split_data(path)
     print("Preprocessing data... - Export label files")
     export_label_files(path, label_file)
     

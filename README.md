@@ -35,3 +35,33 @@ Danh sách thành viên của nhóm:
 
 </div>
 
+## QuickStart
+
+> [!Note]
+> Make sure you have [Anaconda](http://anaconda.com/download-success) installed
+>
+> 
+
+Open `terminal`, type:
+
+`conda env create -f environment.yml`
+
+`conda activate yolov8`
+
+Otherwise, refer to this Guide:
+
+1. Download and open this repository with `git clone https://github.com/cngvng/ask-me.git`
+2. Run  `python app.py`
+
+
+## Many Thanks To Our Contributors⚡
+
+<a href="https://github.com/arc53/DocsGPT/graphs/contributors" alt="View Contributors">
+  <img src="https://contrib.rocks/image?repo=cngvng/ask-me" alt="Contributors" />
+</a>
+
+## License
+
+The source code license is [MIT](https://opensource.org/license/mit/), as described in the [LICENSE](LICENSE) file.
+
+Built with [:bird: :link: LangChain](https://github.com/hwchase17/langchain)
